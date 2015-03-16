@@ -67,8 +67,10 @@ $(document).ready(function(){
 		getrand_host_songs();//换一批热歌
 	});
 	$("#songplay_bg").mousedown(function(e){
+		e.stopPropagation();//阻止事件冒泡(函数里返回假也可以达到效果)
 		if(e.button==2){
-			$(window).contextmenu(function(){//禁用右键菜单
+			$(this).contextmenu(function(event){//禁用右键菜单
+				
 				return false;
 			});
 			alert("you and me 欢迎你的静听\n作者:bluemoon\n联系:QQ:1752295326\n邮箱:1752295326@qq.com");
