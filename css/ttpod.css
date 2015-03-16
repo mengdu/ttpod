@@ -1,0 +1,363 @@
+
+/*--------------start songplay-----------------------*/
+	#songplay_bg{
+		width: 962px;
+		height: 394px;
+		margin-top:50px;
+
+	}
+	#songplay_bg .control_bg{
+		width: 250px;
+		height: 394px;
+		
+		float: left;
+	}
+	#songplay_bg .control_bg .songheader{
+		width: 150px;
+		height: 150px;
+		margin-top:10px;
+		position: relative;
+		border-radius: 75px;
+		border:solid 3px #FFFFFF;
+		box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+		
+	}
+	#songplay_bg .control_bg .songheader .songpic{
+		display: block;
+		width: 150px;
+		height: 150px;
+		border-radius: 75px;
+		border:none;
+	}
+	/*-----------------------*/
+	#songplay_bg .control_bg .songheader .rotate{
+		animation:header 5s linear 0s infinite normal;
+		-moz-animation:header 5s linear 0s infinite normal;/* Firefox */
+		-webkit-animation:header 5s linear 0s infinite normal; /* Safari and Chrome or liebao*/
+		-o-animation:header 5s linear 0s infinite normal; /* Opera */
+	}
+	@keyframes header{ /*for ie*/
+		0%{
+		 transform:rotate(0deg);
+		 -webkit-transform:rotate(0deg);/* Safari and Chrome or 360 or liebao*/
+		 -moz-transform:rotate(0deg);/*Gecko内核*/
+		}
+		100%{
+		transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+		 -moz-transform:rotate(360deg);
+		}
+	}
+	@-moz-keyframes header{ /* Firefox */
+		0%{
+		 transform:rotate(0deg);
+		 -webkit-transform:rotate(0deg);/* Safari and Chrome or 360 or liebao*/
+		 -moz-transform:rotate(0deg);/*Gecko内核*/
+		}
+		100%{
+		transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+		 -moz-transform:rotate(360deg);
+		}
+	}
+	@-o-keyframes header {
+		0%{
+		 transform:rotate(0deg);
+		 -webkit-transform:rotate(0deg);/* Safari and Chrome or 360 or liebao*/
+		 -moz-transform:rotate(0deg);/*Gecko内核*/
+		}
+		100%{
+		transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+		 -moz-transform:rotate(360deg);
+		}
+	}
+	@-webkit-keyframes header {/* Safari and Chrome or liebao Opera */
+		0%{
+		 transform:rotate(0deg);
+		 -webkit-transform:rotate(0deg);/* Safari and Chrome or 360 or liebao*/
+		 -moz-transform:rotate(0deg);/*Gecko内核*/
+		}
+		100%{
+		 transform:rotate(360deg);
+		 -webkit-transform:rotate(360deg);
+		 -moz-transform:rotate(360deg);
+		}
+	}
+	#songplay_bg .control_bg .songheader .playb1{
+		position: absolute;
+		left:0;
+		right: 0;
+		top:52px;
+		width: 44px;
+		height: 44px;
+		cursor: pointer;
+		opacity:0.2;
+		background-image:url(../images/index_10.png);
+		background-position: 0px 0;
+		background-repeat: no-repeat;
+	}
+	#songplay_bg .control_bg .songheader .playb1:hover{
+		opacity:0.8;
+	}
+	#songplay_bg .control_bg .songmessage{
+		margin-top:20px;
+		width: 200px;
+		height: 80px;
+		
+	}
+	#songplay_bg .control_bg .songmessage .songname{
+		width: 220px;
+		height: 30px;
+		border-bottom: dashed 1px #ccc;
+		font-family: 'Microsoft YaHei', sans-serif;
+		font-size: 13px;
+		line-height: 30px;
+		color: #246AAF;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	#songplay_bg .control_bg .songmessage .songer{
+		width: 220px;
+		height: 30px;
+		font-family: 'Microsoft YaHei', sans-serif;
+		font-size: 13px;
+		line-height: 30px;
+		color: #246AAF;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	#songplay_bg .control_bg .control{
+		margin-top: 20px;
+		width: 230px;
+		height: 40px;
+	
+	}
+	#songplay_bg .control_bg .control .annius_last{
+		width: 25px;
+		height: 25px;
+		float: left;
+		margin-left: 10px;
+		margin-top:8px;
+		background-image: url(../images/index_12-07.png);
+		background-size: 25px 25px;
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		cursor: pointer;
+	}
+	#songplay_bg .control_bg .control .annius_last:hover{
+		background-image: url(../images/index_12-06.png);
+	}
+	#songplay_bg .control_bg .control .annius_ps{
+		width: 40px;
+		height: 40px;
+		float: left;
+		margin-left: 10px;
+		background-image: url(../images/index_12-08.png);
+		background-size: 40px 40px;
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		cursor: pointer;
+	}
+	#songplay_bg .control_bg .control .annius_ps:hover{
+		background-image: url(../images/index_12-14.png);
+	}
+	#songplay_bg .control_bg .control .annius_next{
+		width: 25px;
+		height: 25px;
+		float: left;
+		margin-left: 10px;
+		margin-top:8px;
+		background-image: url(../images/index_12-11.png);
+		background-size: 25px 25px;
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		cursor: pointer;
+	}
+	#songplay_bg .control_bg .control .annius_next:hover{
+		background-image: url(../images/index_12-17.png);
+	}
+	#songplay_bg .control_bg .control .voice{
+		width: 10px;
+		height: 10px;
+		float: left;
+		margin-left: 30px;
+		margin-top:15px;
+		background-image: url(../images/index_43.png);
+		background-size: 10px 10px;
+		background-repeat: no-repeat;
+		background-position: 0 0;
+	}
+	
+	#songplay_bg .control_bg .progressbar_bg{
+		width: 240px;
+		height: 40px;
+		
+	}
+	#songplay_bg .control_bg .progressbar_bg .jindu_t{
+		width: 198px;
+		height: 1px;
+		background: rgba(194,193,193,0.3);
+		float: left;
+		margin-top:20px;
+		margin-left: 0px;
+		position: relative;
+		cursor: pointer;
+		border:solid 1px rgba(255,255,255,0.3);
+	}
+	#songplay_bg .control_bg .progressbar_bg .jindu_t .nowjindu{
+		width: 0px;
+		height: 1px;
+		background: rgba(41,201,113,0.7);
+		position: absolute;
+		top:0px;
+	}
+	#songplay_bg .control_bg .progressbar_bg .songtime{
+		width: 40px;
+		height: 30px;
+		float: left;
+		font-family: 'Microsoft YaHei', sans-serif;
+		font-size: 12px;
+		line-height: 30px;
+		color: #246AAF;
+		text-align: center;
+		line-height: 30px;
+		margin-top: 5px;
+	}
+
+
+
+
+
+	#songplay_bg .songlrc_bg{
+		width: 300px;
+		height: 394px;
+		border-right:dashed 1px #cccccc;
+		
+		float: left;
+		position: relative;
+	}
+	#songplay_bg .songlrc_bg .lrc_bg{
+		width: 300px;
+		height:367px;
+		
+		position: absolute;
+		top:14px;
+		z-index: 20;
+	}
+	#songplay_bg .songlrc_bg .zhezhao{
+		width: 300px;
+		height:367px;
+		background-image:url(../images/play_05.png);
+		position: absolute;
+		top:14px;
+		z-index: 21;
+	}
+	/*search song*/
+	#songplay_bg .songlist_bg{
+		width: 411px;
+		height: 394px;
+		
+		float: left;
+	}
+	#songplay_bg .songlist_bg .searchsong_bg{
+		width:400px;
+		height: 45px;
+		
+	}
+	#songplay_bg .songlist_bg .searchsong_bg .songkeyword{
+		outline: none;
+		display: block;
+		float: left;
+		width: 250px;
+		height: 30px;
+		border:solid 1px #29C971;
+		background: none;
+		margin-left: 5px;
+		margin-top: 5px;
+		text-indent: 15px;
+		
+	}
+	#songplay_bg .songlist_bg .searchsong_bg .sousuo,
+	#songplay_bg .songlist_bg .searchsong_bg .randsong{
+		outline: none;
+		display: block;
+		float: left;
+		width: 60px;
+		height: 32px;
+		border:none;
+		margin-left: 10px;
+		margin-top: 5px;
+		cursor: pointer;
+		background: #29C971;
+		color:#ffffff;
+		font-size: 15px;
+		box-shadow:0px 1px 2px rgba(41, 201, 113,0.4);
+	}
+
+	#songplay_bg .songlist_bg .searchsong_bg .sousuo:hover,
+	#songplay_bg .songlist_bg .searchsong_bg .randsong:hover{
+		box-shadow:1px 2px 3px rgba(41, 201, 113,0.8);
+	}
+	#songplay_bg .songlist_bg .songlist{
+		width: 390px;
+		height: 330px;
+		padding: 5px;
+		border-top:dashed 1px #ccc;
+		overflow-x:hidden;
+		overflow-y:auto;
+	}
+	#songplay_bg .songlist_bg .songlist .songs{
+		width: 380px;
+		height: 30px;
+		background: #eee;
+		margin-top: 5px;
+		border:solid 1px #cccccc;
+		cursor: pointer;
+	}
+	#songplay_bg .songlist_bg .songlist .songs:hover{
+		background: rgba(26,103,180,0.5);
+	}
+	#songplay_bg .songlist_bg .songlist .songs .song_name{
+		width: 220px;
+		height: 30px;
+		text-indent: 10px;
+		text-align: left;
+		float: left;
+		font-family: 'Microsoft YaHei', sans-serif;
+		font-size: 13px;
+		line-height: 30px;
+		color:#242424;
+		white-space: nowrap;
+		text-overflow:ellipsis;
+		overflow: hidden;
+		
+	}
+	#songplay_bg .songlist_bg .songlist .songs .song_long,
+	#songplay_bg .songlist_bg .songlist .songs .song_size{
+		width:40px;
+		height: 30px;
+		text-align: center;
+		float: left;
+		font-family: 'Microsoft YaHei', sans-serif;
+		font-size: 11px;
+		line-height: 30px;
+		color:#6F6F6F;
+	}
+	#songplay_bg .songlist_bg .songlist .songs .singer_name{
+		width: 80px;
+		height: 30px;
+		text-indent: 10px;
+		text-align: center;
+		float: right;
+		font-family: 'Microsoft YaHei', sans-serif;
+		font-size: 12px;
+		line-height: 30px;
+		color:#347EC6;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		
+	}

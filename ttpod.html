@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>you and me聆听音乐网</title>
+	<link rel="stylesheet" type="text/css" href="./css/ttpod.css">
+	<script type="text/javascript" src="./js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="./js/ttpod.js"></script>
+	<style type="text/css">
+	*{margin:0 auto;}
+	body{
+		background: #EAE8E8;
+	}
+	</style>
+</head>
+<body>
+	<div class="content"><!--start play-->
+				<div id="songplay_bg"><!--start songplay-->
+						<audio  controls="controls" src="" id="play" style="position:absolute;display:none;"></audio>
+					<div class="control_bg">
+						<div class="songheader">
+							<img src="./images/play_03.png" class="songpic">
+							<div class="playb1"></div>
+						</div>
+						<div class="songmessage">
+							<div class="songname">歌曲：</div>
+							<div class="songer">歌手：</div>
+						</div>
+						<div class="progressbar_bg">
+							<div class="jindu_t"><div class="nowjindu"></div></div>
+							<div class="songtime"></div>
+						</div>
+						<div class="control">
+							<div class="annius_last"></div>
+							<div class="annius_ps"></div>
+							<div class="annius_next"></div>
+							<div class="voice"></div>
+						</div>
+					</div>
+					<div class="songlrc_bg">
+						<div class="lrc_bg">
+							未找到歌词
+						</div>
+						<div class="zhezhao"></div>
+					</div>
+					<div class="songlist_bg">
+						<div class="searchsong_bg">
+							<input type="text" class="songkeyword" value="">
+							<input type="button" class="sousuo" value="搜索" title="点击搜索歌曲">
+							<input type="button" class="randsong" value="换一批" title="点击换一批热歌">
+						</div>
+						<div class="songlist">
+							<!--<div class="songs">
+								<div class="song_name">天使的翅膀</div>
+								<div class="song_long">04:30</div>
+								<div class="song_size">30.5M</div>
+								<div class="singer_name">安琥</div>
+							</div>
+							<div class="songs">
+								<div class="song_name">天使的翅膀天使的翅膀天使的翅膀天使的翅膀翅膀天使的翅膀天使的翅膀</div>
+								<div class="singer_name">安琥安琥安琥安琥</div>
+							</div>-->
+						</div>
+					</div>
+			</div><!--end songplay-->
+</body>
+</html>
