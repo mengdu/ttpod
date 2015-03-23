@@ -86,6 +86,7 @@ $(document).ready(function(){
   var num_type=1;//用来规定取歌曲类型数据 0压缩 1标准 2高品质
   var num_song=0;//用来规定播放第几首歌
   var getpic=null;
+  var readLrc=null;//解析歌词
   var play_now_data={//定义存储当前播放的音乐资料
 		song_name:"unkown",
 		singer_name:"未知",
@@ -247,14 +248,14 @@ function getsong_url(song_id){
 	});
 }
 function get_song_detail(song_dateil_data){
-	
+	readLrc=clearInterval(readLrc);//
 	play_now_data.song_name=song_dateil_data.data[0].song_name,
 	play_now_data.singer_name=song_dateil_data.data[0].singer_name,
 	play_now_data.song_size=song_dateil_data.data[0].url_list[num_type].size,
 	play_now_data.song_long=song_dateil_data.data[0].url_list[num_type].duration,
 	play_now_data.song_url=song_dateil_data.data[0].url_list[num_type].url,
 	getsinger_pic(play_now_data.singer_name);//第一次设置时存在问题？？
-	//getsong_lrc(song_dateil_data.data[0].song_name,song_dateil_data.data[0].singer_name,song_dateil_data.data[0].song_id);
+	getsong_lrc(song_dateil_data.data[0].song_name,song_dateil_data.data[0].singer_name,song_dateil_data.data[0].song_id);
 	//alert(play_now_data.singer_name);
 	playnow(play_now_data);//传入播放数据*/
 }
@@ -308,13 +309,59 @@ function getsong_lrc(song_name,singer_name,song_id){
         }
 	});
 }
-//获取歌词
+//解析歌词
 function return_song_lrc(song_lrc_data){
-	var now_song_lrc=$("#songplay_bg .songlrc_bg .lrc_bg");
-	now_song_lrc.html(song_lrc_data.data.lrc);
-	alert(song_lrc_data.data.lrc);
+
+	var now_song_lrc=$("#songplay_bg .songlrc_bg .lrc_bg .lrc");
+	if(!song_lrc_data.data){
+		now_song_lrc.html("没有找到歌词...");
+		return;
+	}
+	var lrc_re=/(\[.*\])|(\[\d{2}:\d{2}.\d{2,3}\])/g;//(\[\d{2}:\d{2}.\d{2,3}\])//取有时间部分
+	var lrc_ci=song_lrc_data.data.lrc.split(/\[.*\]/);//取得歌词部分
+	var re=song_lrc_data.data.lrc.match(lrc_re);
+	var strs="";
+	for(var i=0;i<lrc_ci.length-1;i++){
+			//歌词
+		//strs+="<li><span class='time'>"+changet(re[i])+"</span><span>"+lrc_ci[i+1]+"</span><br></li>";
+		strs+="<li><span>"+lrc_ci[i+1]+"</span><br></li>";
+	}
+	now_song_lrc.html(strs);
+	var playq=$("#songplay_bg #play")[0];
+	var i=0;
+	
+	readLrc=setInterval(function(){
+		var nt=(playq.currentTime).toFixed(2);
+		for(i=0;i<lrc_ci.length-5;i++){
+			if(re[i])
+			if(parseInt(nt)==parseInt(changet(re[i]))){
+				//console.log((playq.currentTime).toFixed(2));
+				now_song_lrc.animate({
+					top:((6-i)*30),
+				},200);
+				now_song_lrc.children("li").eq(i)[0].className="now_lrc";
+				for(var j=0;j<i;j++){
+					now_song_lrc.children("li").eq(j)[0].className="";
+				}
+			}
+		}
+		//console.log((playq.currentTime).toFixed(2));
+	},500);
 }
 
+function changet(t){
+			var ts=t.match(/\d{2,3}/g);
+			if(ts==null)
+				return "";
+			var str="";
+			//[00:56.99]
+			for(var j=0;j<ts.length;j++)
+			{
+				//str+=ts[j]+" ";
+			}
+			str+=(parseInt(ts[0]*60)+parseInt(ts[1]))+"."+ts[2];
+			return str;
+}
 //改变播放进度
 function change_time(time){
 	var playq=$("#songplay_bg #play")[0];
@@ -329,6 +376,7 @@ function change_time(time){
 	playq.currentTime=time;
 	//playq.play();
 }
+
 //上一首
 function sub_num(){
 	if(result==null){
